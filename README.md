@@ -1,4 +1,4 @@
-### Introduction
+## Introduction
 This documentation provides framework guidelines and high-level overview to build upon the API subaccount feature, known as Bittrex Enterprise Wallets (BEW).
 The subaccount feature enables the partner to create an independent sub-account for their individual users. The partners can provide their users with the follwoing abilities
   1. Create sub-account deposit addresses.
@@ -8,7 +8,7 @@ The subaccount feature enables the partner to create an independent sub-account 
   
 Subaccount feature allows partners to remove two complex components of their platform such as wallets infrastructure and accounts database. Partners will have to maintain a local database to map their customers details to the SubaccountID which will be unique to the users.
 
-### Getting Started
+## Getting Started
 The partners need to commit to the following prerequisites to have access to subaccount feature 
 
 * Contact your Bittrex representative, and they will assist you with enabling Bittrex Enterprise Wallets.
@@ -131,4 +131,48 @@ request.post('https://api.bittrex.com/v3/balances', {
     console.log(`statusCode: ${res.statusCode}`)
     console.log(body)
 }) 
+```
+
+## WALLETS
+
+### Overview
+
+Wallets page entitles one to perform the following operations.
+	1. Display individual holdings of all the different coins in possession of the person.
+	2. Display estimated total holding by summing up the individual balances.
+	3. Allows one to provision a Wallet address for a coin and make deposit to it.
+	4. Allows one to make a withdrawal to an account outside Bittrex.
+	5. Allows one to see the withdrawal history and status of the withdrawal.
+	6. Allows one to see the deposit history and status of the deposit.
+	
+### Subaccounts
+This section is an overview of subaccounts features.
+
+#### GET /subaccounts
+List subaccounts. (NOTE: This API is limited to partners and not available for traders.) Pagination and the sort order of the results are in inverse order of the CreatedAt field.
+
+##### Headers (Explained under Authentication)
+##### Request URI https://api.bittrex.com/v3/subaccounts
+##### Response Example (200OK)
+```
+{
+   "id": "5c838f11-f13c-47f7-8961-a5bfc0e982c2",
+   "createdAt": "2019-06-18T17:56:00.087Z"
+} 
+```
+#### POST /subaccounts
+Create a new subaccount. (NOTE: This API is limited to partners and not available for traders.) 
+
+##### Headers (Explained under Authentication)
+##### Request URI https://api.bittrex.com/v3/subaccounts
+##### Request Body
+```
+{}
+```
+##### Response Example (200OK)
+```
+{
+    "id": "5c838f11-f13c-47f7-8961-a5bfc0e982c2",
+    "createdAt": "2019-06-18T17:56:00.087Z"
+}
 ```
