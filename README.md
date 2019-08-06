@@ -1,3 +1,13 @@
+## Table of Content
+- Content
+  - [Introduction](#Introduction)
+  - [Getting Started](#GettingStarted)
+  	- [Subaccount Limitations](#subaccountLimitations)
+   - [Authentication](#Authentication)
+  - [Wallets](#Wallets)
+  - [Internal Transfers](#transfers)
+
+
 ## Introduction
 This documentation provides framework guidelines and high-level overview to build upon the API subaccount feature, known as Bittrex Enterprise Wallets (BEW).
 The subaccount feature enables the partner to create an independent subaccount for their individual users. The partners can provide their users with the follwoing abilities
@@ -23,7 +33,7 @@ Some subaccount limitations include
 * 2FA must be enabled on the account 
 * Whitelist must be enforced and implemented by the partner. 
 
-### Authentication
+## Authentication
 
 #### Overview
 In order to properly sign an authenticated request for the Bittrex v3 API, the following headers must be included:
@@ -234,7 +244,10 @@ Retrieve account balance for a specific currency. Request will always succeed wh
 
 ### Addresses
 
+When a user wants to make a deposit, the address for the specific wallet must be generated.The following endpoints can be used to create or query the existing wallet addresses for individual user.
+
 #### GET /addresses
+
 List deposit addresses that have been requested or provisioned. 
 
 ##### Headers (Explained under Authentication)
@@ -291,6 +304,8 @@ Retrieve the status of the deposit address for a particular currency for which o
 ```
 
 ### Deposits
+
+When a user wants to make a deposit or query existing deposits, the following endpoints can be used to create or query open/closed  deposits.  
 
 #### GET /deposits/open
 List open deposits. Results are sorted in inverse order of UpdatedAt and are limited to the first 1000.
@@ -385,6 +400,8 @@ Retrieve information for a specific deposit.
 ```
 
 ### Withdrawals
+
+When the user wants to make or query existing withdrawals, the following endpoints can be used. The following open/closed endpoint can be used to determine the state of withdrawals (AUTHORIZED,PENDING,COMPLETED) . One can also cancel the withdrawal if the status has not reached PENDING.
 
 #### GET /withdrawals/open
 List open withdrawals. Results are sorted in inverse order of the CreatedAt field and are limited to the first 1000.
@@ -510,7 +527,7 @@ Create new withdrawal. Please note: You will get an error if you try to send coi
 }
 ```
 
-### Internal Transfers
+## Internal Transfers
 
 General notes on internal transfers.
 1. The minimum that can be transferred is 1Sats (BTC 0.00000001).
