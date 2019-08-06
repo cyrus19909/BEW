@@ -2,10 +2,15 @@
 - Content
   - [Introduction](#Introduction)
   - [Getting Started](#GettingStarted)
-  	- [Subaccount Limitations](#subaccountLimitations)
-   - [Authentication](#Authentication)
+  - [Authentication](#Authentication)
   - [Wallets](#Wallets)
-  - [Internal Transfers](#transfers)
+  	- [Overview](#Overview)
+  	- [Subaccounts](#Subaccounts)
+  	- [Balances](#Balances)
+  	- [Addresses](#Addresses)
+  	- [Deposits](#Deposits)
+  	- [Withdrawals](#Withdrawals)
+  - [Internal Transfers](#internaltransfers)
 
 
 ## Introduction
