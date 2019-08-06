@@ -1,7 +1,7 @@
 ## Table of Content
 - Content
   - [Introduction](#Introduction)
-  - [Getting Started](#GettingStarted)
+  - [Getting Started](#Getting-Started)
   - [Authentication](#Authentication)
   - [Wallets](#Wallets)
   	- [Overview](#Overview)
@@ -10,7 +10,7 @@
   	- [Addresses](#Addresses)
   	- [Deposits](#Deposits)
   	- [Withdrawals](#Withdrawals)
-  - [Internal Transfers](#internaltransfers)
+  - [Internal Transfers](#Internal-Transfers)
 
 
 ## Introduction
@@ -166,7 +166,7 @@ This section is an overview of subaccounts features.
 #### GET /subaccounts
 List subaccounts. (NOTE: This API is limited to partners and not available for traders.) Pagination and the sort order of the results are in inverse order of the CreatedAt field.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI https://api.bittrex.com/v3/subaccounts
 ##### Response Example (200OK)
 ```
@@ -178,7 +178,7 @@ List subaccounts. (NOTE: This API is limited to partners and not available for t
 #### POST /subaccounts
 Create a new subaccount. (NOTE: This API is limited to partners and not available for traders.) 
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI https://api.bittrex.com/v3/subaccounts
 ##### Request Body
 ```
@@ -194,7 +194,7 @@ Create a new subaccount. (NOTE: This API is limited to partners and not availabl
 #### GET / subaccounts /{subaccountId}
 Retrieve details for a specified subaccount. (NOTE: This API is limited to partners and not available for traders.)  
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI https://api.bittrex.com/v3/subaccounts
 
 ##### Response Example (200OK)
@@ -210,7 +210,7 @@ Retrieve details for a specified subaccount. (NOTE: This API is limited to par
 #### GET /balances
 List account balances across available currencies. Returns a Balance entry for each currency for which there is either a balance or an address. 
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/balances 
 ##### Response Example (200OK)
 ```
@@ -236,7 +236,7 @@ List account balances across available currencies. Returns a Balance entry for e
 #### GET /balances/{currencySymbol}
 Retrieve account balance for a specific currency. Request will always succeed when the currency exists, regardless of whether there is a balance or address. 
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/balances/btc
 ##### Response Example (200OK)
 ```
@@ -255,7 +255,7 @@ When a user wants to make a deposit, the address for the specific wallet must be
 
 List deposit addresses that have been requested or provisioned. 
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/addresses 
 ##### Response Example (200OK)
 ```
@@ -277,7 +277,7 @@ List deposit addresses that have been requested or provisioned.
 #### POST /addresses 
 Request provisioning of a deposit address for a currency for which no address has been requested or provisioned. 
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/addresses
 ##### Request Body
 ```
@@ -297,7 +297,7 @@ Request provisioning of a deposit address for a currency for which no address ha
 #### GET /addresses/{currencySymbol} 
 Retrieve the status of the deposit address for a particular currency for which one has been requested or provisioned.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/addressses/btc
 ##### Response Example (200OK)
 ```
@@ -315,7 +315,7 @@ When a user wants to make a deposit or query existing deposits, the following en
 #### GET /deposits/open
 List open deposits. Results are sorted in inverse order of UpdatedAt and are limited to the first 1000.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/deposits/open
 ##### Response Example (200OK)
 ```
@@ -338,7 +338,7 @@ List open deposits. Results are sorted in inverse order of UpdatedAt and are lim
 #### GET /deposits/closed
 List closed deposits. StartDate and EndDate filters apply to the CompletedAt field. Pagination and the sort order of the results are in inverse order of the CompletedAt field.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/deposits/open
 ##### Response Example (200OK)
 ```
@@ -361,7 +361,7 @@ List closed deposits. StartDate and EndDate filters apply to the CompletedAt fie
 #### GET /deposits/ByTxId/{txId} 
 Retrieves all deposits for this account with the given TxId. 
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/deposits/ByTxId/{txId}
 ##### Response Example (200OK)
 ```
@@ -384,7 +384,7 @@ Retrieves all deposits for this account with the given TxId.
 #### GET /deposits/{depositId}
 Retrieve information for a specific deposit.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/deposits/{depositId}
 ##### Response Example (200OK)
 ```
@@ -411,7 +411,7 @@ When the user wants to make or query existing withdrawals, the following endpoin
 #### GET /withdrawals/open
 List open withdrawals. Results are sorted in inverse order of the CreatedAt field and are limited to the first 1000.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/withdrawals/open
 ##### Response Example (200OK)
 ```
@@ -432,7 +432,7 @@ List open withdrawals. Results are sorted in inverse order of the CreatedAt fiel
 #### GET /withdrawals/closed 
 List closed withdrawals. StartDate and EndDate filters apply to the CompletedAt field. Pagination and the sort order of the results are in inverse order of the CompletedAt field.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/withdrawals/closed
 ##### Response Example (200OK)
 ```
@@ -454,7 +454,7 @@ List closed withdrawals. StartDate and EndDate filters apply to the CompletedAt 
 #### GET /withdrawals/ByTxId/{txId} 
 Retrieves all withdrawals for this account with the given TxId.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/withdrawals/ByTxId/{txId}
 ##### Response Example (200OK)
 ```
@@ -476,7 +476,7 @@ Retrieves all withdrawals for this account with the given TxId.
 #### GET /withdrawals/{withdrawalId}
 Retrieve information on a specified withdrawal.
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/withdrawals/ByTxId/{txId}
 ##### Response Example (200OK)
 ```
@@ -498,7 +498,7 @@ Retrieve information on a specified withdrawal.
 #### DELETE /withdrawals/{withdrawalId}
 Cancel a withdrawal. (Withdrawals can only be cancelled if status is REQUESTED, AUTHORIZED, or ERROR_INVALID_ADDRESS.)
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/withdrawals/{withdrawalId}
 ##### Response Example (200OK)
 ```
@@ -508,7 +508,7 @@ N/A
 #### POST /withdrawals
 Create new withdrawal. Please note: You will get an error if you try to send coins directly between Bittrex Accounts.  
 
-##### Headers (Explained under Authentication)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/withdrawals
 ##### Request Body
 ```
@@ -534,14 +534,28 @@ Create new withdrawal. Please note: You will get an error if you try to send coi
 
 ## Internal Transfers
 
+These endpoints are used to move funds between sub accounts and master account and are only applicable to our partners who have subaccount access. Currently supported group of transfers include the following: 
+
+1. Subaccount to Master.
+2. Master to Subaccount.
+3. Subaccount to Subaccount. 
+
+A clear example of the above transfers can be seen in the following figure 
+<p align="center">
+    <img src="./internalTransfer.png" />
+</p>
 General notes on internal transfers.
 1. The minimum that can be transferred is 1Sats (BTC 0.00000001).
 2. Transfers work on available balance and NOT total balance. Same applies to deposits and withdrawals.
+3. Minimum deposit varies for every coin or token which can be found below 
+<p align="center">
+    <img src="./deposit.png" />
+</p>
 
-#### POST /v3/transfers
+#### POST /v3/transfers (Transfer from subaccount to master)
 
-#### Transfer from subaccount to master.
-Append subaccountID to the header and preSignature
+Transfer funds from subaccount(user) to master(partner)
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/transfers
 ##### Request Body
 ```
@@ -559,7 +573,10 @@ Append subaccountID to the header and preSignature
 }
 ```
 
-#### Transfer from master to subaccount.
+#### POST /v3/transfers (Transfer from master to subaccount)
+
+Transfer funds from master(partner) to subaccount(user).
+##### Headers (Explained under [Authentication](#Authentication)) - <u> No SubaccountId in headers</u>
 ##### Request URI  https://api.bittrex.com/v3/transfers
 ##### Request Body
 ```
@@ -577,8 +594,10 @@ Append subaccountID to the header and preSignature
 }
 ```
 
-#### Transfer from subaccount to subaccount.
-Append subaccountID to the header and preSignature
+#### POST /v3/transfers (Transfer from subaccount to subaccount)
+
+Transfer funds from subaccount(user) to subaccount(user).
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/transfers
 ##### Request Body
 ```
@@ -598,7 +617,8 @@ Append subaccountID to the header and preSignature
 
 #### GET /v3/transfers/{transferID}
 
-#### Get transfer by ID (from master to subaccount)
+Get Transfer based on the Transfer Id
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/transfers/{transferID}
 ##### Response Example (200OK)
 ```
@@ -611,37 +631,10 @@ Append subaccountID to the header and preSignature
 } 
 ```
 
-#### Get transfer by ID (from subaccount to subaccount)
-Append subaccountID to the header and preSignature
-##### Request URI  https://api.bittrex.com/v3/transfers/{transferID}
-##### Response Example (200OK)
-```
-{ 
-    "toSubaccountId": "b61bdb98-ed6a-4bbf-8cec-43ff31518b01", 
-    "id": "01e203ec-bb4a-4b52-9f49-914a88d52b2b", 
-    "currencySymbol": "BTC", 
-    "amount": "0.00010000", 
-    "executedAt": "2019-06-17T21:25:58.05Z" 
-}
-```
+#### GET /v3/transfers/sent (Received from master)
 
-#### Get transfer by ID (from subaccount to master)
-Header: SubaccountId required and the preSignature needs the subaccountID.
-##### Request URI  https://api.bittrex.com/v3/transfers/{transferID}
-##### Response Example (200OK)
-```
-{
-    "toMasterAccount": true,
-    "id": "dc0ab541-4026-4451-b994-d20d44f58ed4", 
-    "currencySymbol": "BTC", 
-    "amount": "0.00010000", 
-    "executedAt": "2019-06-17T21:13:30.57Z"
-}
-```
-
-### GET /v3/transfers/sent
-
-#### Get list of sent transfers from master to subaccounts
+Get list of sent transfers from master.
+##### Headers (Explained under [Authentication](#Authentication)) - <u> No SubaccountId in headers</u>
 ##### Request URI  https://api.bittrex.com/v3/transfers/sent
 ##### Response Example (200OK)
 ```
@@ -663,8 +656,10 @@ Header: SubaccountId required and the preSignature needs the subaccountID.
 ] 
 ```
 
-#### Get list of sent transfers from subaccount to subaccounts and master
-Append subaccountID to the header and preSignature
+#### GET /v3/transfers/sent (Sent from Subaccount)
+
+Get list of sent transfers from subaccount 
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/transfers/sent
 ##### Response Example (200OK)
 ```
@@ -686,9 +681,10 @@ Append subaccountID to the header and preSignature
 ] 
 ```
 
-### GET /v3/transfers/received
+#### GET /v3/transfers/received (Received by Master)
 
-#### Get list of received transfers by master
+Get list of received transfers by master
+##### Headers (Explained under [Authentication](#Authentication)) - <u> No SubaccountId in headers</u>
 ##### Request URI  https://api.bittrex.com/v3/transfers/received
 ##### Response Example (200OK)
 ```
@@ -703,8 +699,10 @@ Append subaccountID to the header and preSignature
 ] 
 ```
 
-#### Get list of received transfers by subaccount
-Append subaccountID to the header and preSignature
+#### GET /v3/transfers/received (Received by Subaccount)
+
+Get list of received transfers by subaccount
+##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI  https://api.bittrex.com/v3/transfers/received
 ##### Response Example (200OK)
 ```
