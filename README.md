@@ -15,28 +15,28 @@
 
 ## Introduction
 This documentation provides framework guidelines and high-level overview to build upon the API subaccount feature, known as Bittrex Enterprise Wallets (BEW).
-The subaccount feature enables the partner to create an independent subaccount for their individual users. The partners can provide their users with the follwoing abilities
-  1. Create subaccount deposit addresses.
+The subaccount feature enables exchange partners to create an independent subaccount for their individual users. They can provide their users with the following abilities:
+  1. Create subaccount deposit addresses
   2. Manage Deposits
   3. Withdraw funds
   4. Place orders
   
-Subaccount feature allows partners to remove two complex components of their platform such as wallets infrastructure and accounts database. Partners will have to maintain a local database to map their customers details to the SubaccountID which will be unique to the users.
+Subaccount feature allows partners to remove two complex components of their platform such as wallets infrastructure. Partners will have to maintain a local database for user identity managemnt to map their customers details to the SubaccountID which will be unique to the users.
 
 ## Getting Started
-The partners need to commit to the following prerequisites to have access to subaccount feature 
+The partners need to commit to the following prerequisites to have access to subaccount feature:
 
-* Contact your Bittrex representative, and they will assist you with enabling Bittrex Enterprise Wallets.
 * Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.
-* API key must be created manually through the UI right now.
+* API key must be created manually through the UI.
 * Please reach out to your Bittrex representative or  corpcare@bittrex.com to get your API key whitelisted and enable subaccount feature.
 * All REST requests must be sent to https://api.bittrex.com/v3 using the application/json content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.
 
 ### Subaccount Limitations
-Some subaccount limitations include 
-* API Keys cannot be created for a subaccount for the users.
-* 2FA must be enabled on the account 
-* Whitelist must be enforced and implemented by the partner. 
+Some subaccount limitations include:
+
+* API Keys cannot be created for a subaccount.
+* 2FA must be enabled on the account.
+* API whitelisting must be enforced and implemented by the partner. 
 
 ## Authentication
 
@@ -68,13 +68,13 @@ Populate this header with a SHA512 hash of the request contents, Hex-encoded. If
 
 Sample JS Code Snippet:
 ```
-var content = ““ 
+var content = "<emptyString>" 
 var contentHash = CryptoJS.SHA512(content).toString(CryptoJS.enc.Hex);
 
 cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e
 ```
 
-##### Api-Subaccount-Id (Only for subaccount feature)
+##### Api-Subaccount-Id (Only in the contenxt of subaccounts)
 If you wish to make a request on behalf of a subaccount, you will need to:
 	* Authenticate using all 4 of the headers above referring to your master account.
 	* Populate the Api-Subaccount-Id header with the Guid of the subaccount you wish to impersonate for this request. The specified subaccount must be a subaccount of the master account used to authenticate the request. (please refer to SUBACCOUNTS section on how to generate or retrieve subaccount ID)
@@ -100,7 +100,7 @@ var preSign = [timestamp, uri, method, contentHash, subaccountId].join('');
 var signature = CryptoJS.HmacSHA512(preSign, apiSecret).toString(CryptoJS.enc.Hex);
 ```
 
-__Example Pre-Signed Value:with subaccount)__
+__Example Pre-Signed Value:(with subaccountId)__
 
 ```1542323450016https://api.bittrex.com/v3/balancesGETcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3ex111x11x-8968-48ac-b956-x1x11x111111```
 
@@ -148,11 +148,11 @@ request.post('https://api.bittrex.com/v3/balances', {
 }) 
 ```
 
-## WALLETS
+## Wallets
 
 ### Overview
 
-Wallets page entitles one to perform the following operations.
+Wallets page entitles one to perform the following operations:
 	1. Display individual holdings of all the different coins in possession of the person.
 	2. Display estimated total holding by summing up the individual balances.
 	3. Allows one to provision a Wallet address for a coin and make deposit to it.
@@ -164,7 +164,7 @@ Wallets page entitles one to perform the following operations.
 This section is an overview of subaccounts features.
 
 #### GET /subaccounts
-List subaccounts. (NOTE: This API is limited to partners and not available for traders.) Pagination and the sort order of the results are in inverse order of the CreatedAt field.
+List subaccounts. (NOTE: This API is limited to exchange partners and not available for traders.) Pagination and the sort order of the results are in inverse order of the CreatedAt field.
 
 ##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI https://api.bittrex.com/v3/subaccounts
@@ -221,9 +221,9 @@ List account balances across available currencies. Returns a Balance entry for e
         "available": "0" 
     }, 
     { 
-        "currencySymbol": "PESOS", 
-        "total": "1000000.00000000", 
-        "available": "1000000.00000000" 
+        "currencySymbol": "ETH", 
+        "total": "1.00000000", 
+        "available": "1.00000000" 
     }, 
     { 
         "currencySymbol": "QRL", 
@@ -534,7 +534,7 @@ Create new withdrawal. Please note: You will get an error if you try to send coi
 
 ## Internal Transfers
 
-These endpoints are used to move funds between sub accounts and master account and are only applicable to our partners who have subaccount access. Currently supported group of transfers include the following: 
+These endpoints are used to move funds between sub accounts and master account and are only applicable to our exchange partners who have subaccount access. Currently supported group of transfers include the following: 
 
 1. Subaccount to Master.
 2. Master to Subaccount.
