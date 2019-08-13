@@ -536,9 +536,9 @@ Create new withdrawal. Please note: You will get an error if you try to send coi
 
 These endpoints are used to move funds between sub accounts and master account and are only applicable to our exchange partners who have subaccount access. Currently supported group of transfers include the following: 
 
-1. Subaccount to Master.
-2. Master to Subaccount.
-3. Subaccount to Subaccount. 
+1. [Subaccount to Master](#Transfer-from-subaccount-to-master)
+2. [Master to Subaccount](#Transfer-from-master-to-subaccount)
+3. [Subaccount to Subaccount](#Transfer-from-subaccount-to-subaccount) 
 
 A clear example of the above transfers can be seen in the following figure 
 <p align="center">
