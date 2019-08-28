@@ -1,4 +1,4 @@
-## Table of Content
+## Table of Contents
 - [Introduction](#Introduction)
 - [Getting Started](#Getting-Started)
 - [Authentication](#Authentication)
@@ -20,7 +20,7 @@ The subaccount feature enables exchange partners to create an independent subacc
   3. Withdraw funds
   4. Place orders
   
-Subaccount feature allows partners to remove two complex components of their platform such as wallets infrastructure. Partners will have to maintain a local database for user identity managemnt to map their customers details to the SubaccountID which will be unique to the users.
+Subaccount feature allows partners to remove two complex components of their platform such as wallets infrastructure. Partners will have to maintain a local database for user identity management to map their customers details to the SubaccountID which will be unique to the users.
 
 ## Getting Started
 The partners need to commit to the following prerequisites to have access to subaccount feature:
@@ -175,7 +175,7 @@ List subaccounts. (NOTE: This API is limited to exchange partners and not availa
 } 
 ```
 #### POST /subaccounts
-Create a new subaccount. (NOTE: This API is limited to partners and not available for traders.) 
+Create a new subaccount. (NOTE: This API is limited to exchange partners and not available for traders.) 
 
 ##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI https://api.bittrex.com/v3/subaccounts
@@ -191,7 +191,7 @@ Create a new subaccount. (NOTE: This API is limited to partners and not availabl
 }
 ```
 #### GET / subaccounts /{subaccountId}
-Retrieve details for a specified subaccount. (NOTE: This API is limited to partners and not available for traders.)  
+Retrieve details for a specified subaccount. (NOTE: This API is limited to exchange partners and not available for traders.)  
 
 ##### Headers (Explained under [Authentication](#Authentication))
 ##### Request URI https://api.bittrex.com/v3/subaccounts
@@ -533,7 +533,7 @@ Create new withdrawal. Please note: You will get an error if you try to send coi
 
 ## Internal Transfers
 
-These endpoints are used to move funds between sub accounts and master account and are only applicable to our exchange partners who have subaccount access. Currently supported group of transfers include the following: 
+These endpoints are used to move funds between subaccounts and master account and are only applicable to our exchange partners who have subaccount access. Currently supported group of transfers include the following: 
 
 1. Subaccount to Master.
 2. Master to Subaccount.
