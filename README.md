@@ -83,11 +83,12 @@ If you wish to make a request on behalf of a subaccount, you will need to:
 
 ##### Api-Signature
 Create a pre-signature string formed from the following items and concatenating them together:
-  1.Contents of your Api-Timestamp header
-  2.The full URI you are using to make the request (including query string)
-  3.The HTTP method of the request, in all caps (GET, POST, DELETE, etc.)
-  4.Contents of your Api-Content-Hash header
-  5.Content of your Api-Subaccount-Id header (or an empty string if not present)
+
+1. Contents of your Api-Timestamp header
+2. The full URI you are using to make the request (including query string)
+3. The HTTP method of the request, in all caps (GET, POST, DELETE, etc.)
+4. Contents of your Api-Content-Hash header
+5. Content of your Api-Subaccount-Id header (or an empty string if not present)
 
 Once you have created this pre-sign string, sign it via HmacSHA512, using your API secret as the signing secret. Hex-encode the result of this operation and populate the Api-Signature header with it.
 
@@ -149,15 +150,14 @@ request.post('https://api.bittrex.com/v3/balances', {
 
 ## Wallets
 
-### Overview
-
 Wallets page entitles one to perform the following operations:
-	1. Display individual holdings of all the different coins in possession of the person.
-	2. Display estimated total holding by summing up the individual balances.
-	3. Allows one to provision a Wallet address for a coin and make deposit to it.
-	4. Allows one to make a withdrawal to an account outside Bittrex.
-	5. Allows one to see the withdrawal history and status of the withdrawal.
-	6. Allows one to see the deposit history and status of the deposit.
+
+1. Display individual holdings of all the different coins in possession of the person.
+2. Display estimated total holding by summing up the individual balances.
+3. Allows one to provision a Wallet address for a coin and make deposit to it.
+4. Allows one to make a withdrawal to an account outside Bittrex.
+5. Allows one to see the withdrawal history and status of the withdrawal.
+6. Allows one to see the deposit history and status of the deposit.
 	
 ### Subaccounts
 This section is an overview of subaccounts features.
