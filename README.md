@@ -2,9 +2,9 @@
 - [Introduction](#Introduction)
 - [Getting Started](#Getting-Started)
 - [Authentication](#Authentication)
-- [Wallets](#Wallets)
+- [Subaccounts](#Subaccounts)
+- [Wallet for Subaccounts](#Wallet-for-Subaccounts)
     - [Overview](#Overview)
-  	- [Subaccounts](#Subaccounts)
   	- [Balances](#Balances)
   	- [Addresses](#Addresses)
   	- [Deposits](#Deposits)
@@ -20,13 +20,13 @@ The subaccount feature enables exchange partners to create an independent subacc
   3. Withdraw funds
   4. Place orders
   
-Subaccount feature allows partners to remove two complex components of their platform such as wallets infrastructure. Partners will have to maintain a local database for user identity management to map their customers details to the SubaccountID which will be unique to the users.
+Subaccount feature allows partners to remove complex components off their platform such as wallets infrastructure. Partners will have to maintain a local database for user identity management to map their customers details to the SubaccountID which will be unique to the users.
 
 ## Getting Started
-The partners need to commit to the following prerequisites to have access to subaccount feature:
+The partners need perform the following prerequisites to have access to subaccount feature:
 
+* API key must be created.
 * Enable 2FA on your account. API Keys cannot be generated unless 2FA is enabled.
-* API key must be created manually through the UI.
 * Please reach out to your Bittrex representative or  corpcare@bittrex.com to get your API key whitelisted and enable subaccount feature.
 * All REST requests must be sent to https://api.bittrex.com/v3 using the application/json content type. Non-HTTPS requests will be redirected to HTTPS, possibly causing functional or performance issues with your application.
 
@@ -34,8 +34,7 @@ The partners need to commit to the following prerequisites to have access to sub
 Some subaccount limitations include:
 
 * API Keys cannot be created for a subaccount.
-* 2FA must be enabled on the account.
-* API whitelisting must be enforced and implemented by the partner. 
+* 2FA must be enabled on the account. 
 
 ## Authentication
 
@@ -148,18 +147,7 @@ request.post('https://api.bittrex.com/v3/balances', {
 }) 
 ```
 
-## Wallets
-
-Wallets page entitles one to perform the following operations:
-
-1. Display individual holdings of all the different coins in possession of the person.
-2. Display estimated total holding by summing up the individual balances.
-3. Allows one to provision a Wallet address for a coin and make deposit to it.
-4. Allows one to make a withdrawal to an account outside Bittrex.
-5. Allows one to see the withdrawal history and status of the withdrawal.
-6. Allows one to see the deposit history and status of the deposit.
-	
-### Subaccounts
+## Subaccounts
 This section is an overview of subaccounts features.
 
 #### GET /subaccounts
@@ -204,6 +192,17 @@ Retrieve details for a specified subaccount. (NOTE: This API is limited to exc
 }
 ```
 
+## Wallet for Subaccounts
+
+Wallet entitles one to perform the following operations for subacocunts:
+
+1. Display individual holdings of all the different coins in possession of the person.
+2. Display estimated total holding by summing up the individual balances.
+3. Allows one to provision a Wallet address for a coin and make deposit to it.
+4. Allows one to make a withdrawal to an account outside Bittrex.
+5. Allows one to see the withdrawal history and status of the withdrawal.
+6. Allows one to see the deposit history and status of the deposit.
+	
 ### Balances
 
 #### GET /balances
@@ -537,16 +536,20 @@ These endpoints are used to move funds between subaccounts and master account an
 
 1. Subaccount to Master.
 2. Master to Subaccount.
-3. Subaccount to Subaccount. 
+3. Subaccount to Subaccount.(Note: Both subaccounts belong to the same master account)
 
 A clear example of the above transfers can be seen in the following figure 
 <p align="center">
     <img src="./internalTransfer.png" />
 </p>
 General notes on internal transfers.
+
 1. The minimum that can be transferred is 1Sats (BTC 0.00000001).
 2. Transfers work on available balance and NOT total balance. Same applies to deposits and withdrawals.
 3. Minimum deposit varies for every coin or token which can be found below 
+4. When a transaction takes place from the direction of <u> master to subaccount</u>, the subaccountId is <u>NOT</u> required but it is required vice-versa. More clarification is provided under headers for each of the following endpoints.
+
+For more details look at the headers 
 <p align="center">
     <img src="./deposit.png" />
 </p>
